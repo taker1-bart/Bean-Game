@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://covk4awruks1s"]
+
+[ext_resource type="PackedScene" uid="uid://css2ocbo35ruv" path="res://jar.gltf.blend" id="1_1xhj4"]
+
+[node name="jar_gltf" unique_id=9348792 instance=ExtResource("1_1xhj4")]

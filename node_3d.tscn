@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://ddlkby2coavf4"]
+
+[ext_resource type="Script" uid="uid://bb3d5iie748dc" path="res://node_3d.gd" id="1_noarx"]
+[ext_resource type="PackedScene" uid="uid://css2ocbo35ruv" path="res://jar.gltf.blend" id="2_noarx"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_a202f"]
+
+[sub_resource type="Sky" id="Sky_noarx"]
+sky_material = SubResource("ProceduralSkyMaterial_a202f")
+
+[sub_resource type="Environment" id="Environment_a0tk4"]
+background_mode = 2
+sky = SubResource("Sky_noarx")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_noarx"]
+albedo_color = Color(0.462905, 0.2838691, 1.92523e-07, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_a0tk4"]
+material = SubResource("StandardMaterial3D_noarx")
+radial_segments = 4
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r3fl7"]
+
+[node name="Node3D" type="Node3D" unique_id=1535006790]
+script = ExtResource("1_noarx")
+
+[node name="jar_gltf" parent="." unique_id=9348792 instance=ExtResource("2_noarx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7031479, 0)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1738106381]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2897592, 4.918233)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=519967395]
+transform = Transform3D(1, 0, 0, 0, -0.9974057, -0.071984835, 0, 0.071984835, -0.9974057, 0, 5.0830817, 8.50528)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1959936422]
+environment = SubResource("Environment_a0tk4")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=2042461658]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 6.413644, 0.13503361)
+freeze = true
+freeze_mode = 1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=957454466]
+mesh = SubResource("CapsuleMesh_a0tk4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1961693328]
+shape = SubResource("CapsuleShape3D_r3fl7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=394096636]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1005753313]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Press or hold Space to Put Beans in the jar"
+
+[node name="Label2" type="Label" parent="CanvasLayer" unique_id=559448177]
+offset_left = 1007.0
+offset_top = 620.0
+offset_right = 1333.0
+offset_bottom = 643.0
+text = "taker1_ made this"
